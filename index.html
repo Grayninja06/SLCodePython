@@ -1,337 +1,342 @@
+<style>
+  <a>
+     .tab { margin-left: 40px; }
+  </a>
+</style>
 <body>
   <h1>Python Code For Science Fair Project</h1>
-  <h2>
-    import random
+  <p class="a">
+    import random<br>
 
-    if 1 == 1:
-        WinX = None
-        WinY = None
-
-
-        class Locations:
-            def __init__(self, X, Y, Shape):
-                self.X = X
-                self.Y = Y
-                self.Shape = Shape
+    if 1 == 1:<br>
+        WinX = None<br>
+        WinY = None<br>
 
 
-        one = Locations(1, 1, 0)
-        two = Locations(1, 2, 0)
-        three = Locations(1, 3, 0)
-        four = Locations(2, 1, 0)
-        five = Locations(2, 2, 0)
-        six = Locations(2, 3, 0)
-        seven = Locations(3, 1, 0)
-        eight = Locations(3, 2, 0)
-        nine = Locations(3, 3, 0)
-
-        indexlist = [one, two, three, four, five, six, seven, eight, nine]
-        indexer = 0
-        turn = 0
+        class Locations:<br>
+            def __init__(self, X, Y, Shape):<br>
+                self.X = X<br>
+                self.Y = Y<br>
+                self.Shape = Shape<br>
 
 
-        def SwitchTurn():
-            global turn
-            if turn == -1:
-                turn = 1
-            elif turn == 1:
-                turn = -1
-            else:
-                C = random.randint(1, 2)
-                if C == 1:
-                    print("AI goes first")
-                    turn = -1
-                if C == 2:
-                    print("You go first")
-                    turn = 1
+        one = Locations(1, 1, 0)<br>
+        two = Locations(1, 2, 0)<br>
+        three = Locations(1, 3, 0)<br>
+        four = Locations(2, 1, 0)<br>
+        five = Locations(2, 2, 0)<br>
+        six = Locations(2, 3, 0)<br>
+        seven = Locations(3, 1, 0)<br>
+        eight = Locations(3, 2, 0)<br>
+        nine = Locations(3, 3, 0)<br>
+
+        indexlist = [one, two, three, four, five, six, seven, eight, nine]<br>
+        indexer = 0<br>
+        turn = 0v
 
 
-        list1 = one, three, seven, nine
-        list2 = two, four, six, eight
-        B = 3
-        ZE = 3
-        length = 0
+        def SwitchTurn():<br>
+            global turn<br>
+            if turn == -1:<br>
+                turn = 1<br>
+            elif turn == 1:<br>
+                turn = -1<br>
+            else:<br>
+                C = random.randint(1, 2)<br>
+                if C == 1:<br>
+                    print("AI goes first")<br>
+                    turn = -1<br>
+                if C == 2:<br>
+                    print("You go first")<br>
+                    turn = 1<br>
 
 
-        def YBot():
-            global one, var
-            global four
-            global three
-            global six
-            global WinX
-            global WinY
-            Stop = False
-            for x in indexlist:
-                if x.Shape == 0:
-                    x.Shape = -1
-                    CheckForWin2()
-                    if WinY:
-                        Stop = True
-                        break
-                    else:
-                        x.Shape = 0
-            if not Stop:
-                for x in indexlist:
-                    if x.Shape == 0:
-                        x.Shape = 1
-                        CheckForWin2()
-                        if WinX:
-                            WinX = False
-                            Stop = True
-                            x.Shape = -1
-                            break
-                        else:
-                            x.Shape = 0
-            if not Stop:
-                global one
-                global two
-                global three
-                global four
-                global five
-                global six
-                global seven
-                global eight
-                global nine
-                global list1
-                global list2
-                global B
-                global ZE
-                global length
-                if five.Shape == 0:
-                    five.Shape = -1
-                else:
-                    list1 = list(list1)
-                    if one.Shape == 1 or one.Shape == -1:
-                        if one in list1:
-                            list1.remove(one)
-                            B = B - 1
-                    if three.Shape == 1 or three.Shape == -1:
-                        if three in list1:
-                            list1.remove(three)
-                            B = B - 1
-                    if seven.Shape == 1 or seven.Shape == -1:
-                        if seven in list1:
-                            list1.remove(seven)
-                            B = B - 1
-                    if nine.Shape == 1 or nine.Shape == -1:
-                        if nine in list1:
-                            list1.remove(nine)
-                            B = B - 1
-                    Rnd1 = random.randint(0, B)
-                    while True:
-                        length = len(list1)
-                        if len(list1) != 0:
-                            try:
-                                var = list1[Rnd1]
-                            except:
-                                Hi = 1
-                        if var.Shape == 0:
-                            var.Shape = -1
-                            break
-                        else:
-                            try:
-                                if two.Shape == 1 or two.Shape == -1:
-                                    if two in list2:
-                                        list1.remove(two)
-                                        ZE = ZE - 1
-                                if four.Shape == 1 or four.Shape == -1:
-                                    if four in list2:
-                                        list1.remove(four)
-                                        ZE = ZE - 1
-                                if six.Shape == 1 or six.Shape == -1:
-                                    if six in list2:
-                                        list1.remove(six)
-                                        ZE = ZE - 1
-                                if eight.Shape == 1 or eight.Shape == -1:
-                                    if eight in list2:
-                                        list1.remove(eight)
-                                        ZE = ZE - 1
-                            except:
-                                hi = 2
-
-                            Rnd2 = random.randint(0, ZE)
-                            Rnd2 = Rnd2 - 1
-                            while True:
-                                try:
-                                    var2 = list2[Rnd2]
-                                finally:
-                                    hi = 1
-                                if var2.Shape == 0:
-                                    var2.Shape = -1
-                                    break
-                                else:
-                                    length2 = len(list2)
-                                    if length2 == 0:
-                                        print("Tie but error")
-                                    else:
-                                        list2 = list(list2)
-                                        del list2[Rnd2]
-                                        ZE = ZE - 1
-                                        continue
-                    length = len(list1)
-                    list1 = list(list1)
-                    del list1[Rnd1]
+        list1 = one, three, seven, nine<br>
+        list2 = two, four, six, eight<br>
+        B = 3<br>
+        ZE = 3<br>
+        length = 0<br>
 
 
-        def Designate():
-            global indexer
-            while True:
-                if turn == -1:
-                    YBot()
-                    break
-                else:
-                    print("Your Turn")
-                    indexer = input()
-                    indexer = int(indexer) + -1
-                    ActiveSpace = indexlist[indexer]
-                    if ActiveSpace.Shape != 0:
-                        print('Already Played try again')
-                        continue
-                    else:
-                        ActiveSpace.Shape = turn
-                        break
+        def YBot():<br>
+            global one, var<br>
+            global four<br>
+            global three<br>
+            global six<br>
+            global WinX<br>
+            global WinY<br>
+            Stop = False<br>
+            for x in indexlist:<br>
+                if x.Shape == 0:<br>
+                    x.Shape = -1<br>
+                    CheckForWin2()<br>
+                    if WinY:<br>
+                        Stop = True<br>
+                        break<br>
+                    else:<br>
+                        x.Shape = 0<br>
+            if not Stop:<br>
+                for x in indexlist:<br>
+                    if x.Shape == 0:<br>
+                        x.Shape = 1<br>
+                        CheckForWin2()<br>
+                        if WinX:<br>
+                            WinX = False<br>
+                            Stop = True<br>
+                            x.Shape = -1<br>
+                            break<br>
+                        else:<br>
+                            x.Shape = 0<br>
+            if not Stop:<br>
+                global one<br>
+                global two<br>
+                global three<br>
+                global four<br>
+                global five<br>
+                global six<br>
+                global seven<br>
+                global eight<br>
+                global nine<br>
+                global list1<br>
+                global list2<br>
+                global B<br>
+                global ZE<br>
+                global length<br>
+                if five.Shape == 0:<br>
+                    five.Shape = -1<br>
+                else:<br>
+                    list1 = list(list1)<br>
+                    if one.Shape == 1 or one.Shape == -1:<br>
+                        if one in list1:<br>
+                            list1.remove(one)<br>
+                            B = B - 1<br>
+                    if three.Shape == 1 or three.Shape == -1:<br>
+                        if three in list1:<br>
+                            list1.remove(three)<br>
+                            B = B - 1<br>
+                    if seven.Shape == 1 or seven.Shape == -1:<br>
+                        if seven in list1:<br>
+                            list1.remove(seven)<br>
+                            B = B - 1<br>
+                    if nine.Shape == 1 or nine.Shape == -1:<br>
+                        if nine in list1:<br>
+                            list1.remove(nine)<br>
+                            B = B - 1<br>
+                    Rnd1 = random.randint(0, B)<br>
+                    while True:<br>
+                        length = len(list1)<br>
+                        if len(list1) != 0:<br>
+                            try:<br>
+                                var = list1[Rnd1]<br>
+                            except:<br>
+                                Hi = 1<br>
+                        if var.Shape == 0:<br>
+                            var.Shape = -1<br>
+                            break<br>
+                        else:<br>
+                            try:<br>
+                                if two.Shape == 1 or two.Shape == -1:<br>
+                                    if two in list2:<br>
+                                        list1.remove(two)<br>
+                                        ZE = ZE - 1<br>
+                                if four.Shape == 1 or four.Shape == -1:<br>
+                                    if four in list2:<br>
+                                        list1.remove(four)<br>
+                                        ZE = ZE - 1<br>
+                                if six.Shape == 1 or six.Shape == -1:<br>
+                                    if six in list2:<br>
+                                        list1.remove(six)<br>
+                                        ZE = ZE - 1<br>
+                                if eight.Shape == 1 or eight.Shape == -1:<br>
+                                    if eight in list2:<br>
+                                        list1.remove(eight)<br>
+                                        ZE = ZE - 1<br>
+                            except:<br>
+                                hi = 2<br>
+
+                            Rnd2 = random.randint(0, ZE)<br>
+                            Rnd2 = Rnd2 - 1<br>
+                            while True:<br>
+                                try:<br>
+                                    var2 = list2[Rnd2]<br>
+                                finally:<br>
+                                    hi = 1<br>
+                                if var2.Shape == 0:<br>
+                                    var2.Shape = -1<br>
+                                    break<br>
+                                else:<br>
+                                    length2 = len(list2)<br>
+                                    if length2 == 0:<br>
+                                        print("Tie but error")<br>
+                                    else:<br>
+                                        list2 = list(list2)<br>
+                                        del list2[Rnd2]<br>
+                                        ZE = ZE - 1<br>
+                                        continue<br>
+                    length = len(list1)<br>
+                    list1 = list(list1)<br>
+                    del list1[Rnd1]<br>
 
 
-        indexer2 = 0
+        def Designate():<br>
+            global indexer<br>
+            while True:<br>
+                if turn == -1:<br>
+                    YBot()<br>
+                    break<br>
+                else:<br>
+                    print("Your Turn")<br>
+                    indexer = input()<br>
+                    indexer = int(indexer) + -1<br>
+                    ActiveSpace = indexlist[indexer]<br>
+                    if ActiveSpace.Shape != 0:<br>
+                        print('Already Played try again')<br>
+                        continue<br>
+                    else:<br>
+                        ActiveSpace.Shape = turn<br>
+                        break<br>
 
 
-        def Reset():
-            global indexer2
-            indexer2 = 0
+        indexer2 = 0<br>
 
 
-        def PrintBoard1():
-            global indexlist
-            global indexer2
-            PrintingSpace = indexlist[indexer2]
-            if PrintingSpace.Shape == 1:
-                indexer2 = indexer2 + 1
-                return 'X'
-            if PrintingSpace.Shape == 0:
-                indexer2 = indexer2 + 1
-                return ' '
-            if PrintingSpace.Shape == -1:
-                indexer2 = indexer2 + 1
-                return 'O'
+        def Reset():<br>
+            global indexer2<br>
+            indexer2 = 0<br>
 
 
-        def CheckForWin2():
-            global WinX
-            global WinY
-            if one.Shape == 1 and two.Shape == 1 and three.Shape == 1:
-                WinX = True
-            if one.Shape == -1 and two.Shape == -1 and three.Shape == -1:
-                WinY = True
-            if four.Shape == 1 and five.Shape == 1 and six.Shape == 1:
-                WinX = True
-            if four.Shape == -1 and five.Shape == -1 and six.Shape == -1:
-                WinY = True
-            if seven.Shape == 1 and eight.Shape == 1 and nine.Shape == 1:
-                WinX = True
-            if seven.Shape == -1 and eight.Shape == -1 and nine.Shape == -1:
-                WinY = True
-            if one.Shape == 1 and four.Shape == 1 and seven.Shape == 1:
-                WinX = True
-            if one.Shape == -1 and four.Shape == -1 and seven.Shape == -1:
-                WinY = True
-            if two.Shape == 1 and five.Shape == 1 and eight.Shape == 1:
-                WinX = True
-            if two.Shape == -1 and five.Shape == -1 and eight.Shape == -1:
-                WinY = True
-            if three.Shape == 1 and six.Shape == 1 and nine.Shape == 1:
-                WinX = True
-            if three.Shape == -1 and six.Shape == -1 and nine.Shape == -1:
-                WinY = True
-            if one.Shape == 1 and five.Shape == 1 and nine.Shape == 1:
-                WinX = True
-            if one.Shape == -1 and five.Shape == -1 and nine.Shape == -1:
-                WinY = True
-            if three.Shape == 1 and five.Shape == 1 and seven.Shape == 1:
-                WinX = True
-            if three.Shape == -1 and five.Shape == -1 and seven.Shape == -1:
-                WinY = True
+        def PrintBoard1():<br>
+            global indexlist<br>
+            global indexer2<br>
+            PrintingSpace = indexlist[indexer2]<br>
+            if PrintingSpace.Shape == 1:<br>
+                indexer2 = indexer2 + 1<br>
+                return 'X'<br>
+            if PrintingSpace.Shape == 0:<br>
+                indexer2 = indexer2 + 1<br>
+                return ' '<br>
+            if PrintingSpace.Shape == -1:<br>
+                indexer2 = indexer2 + 1<br>
+                return 'O'<br>
 
 
-        def CheckForWinAI():
-            global WinX
-            global WinY
-            if one.Shape == 2 and two.Shape == 2 and three.Shape == 2:
-                WinY = True
-            if four.Shape == 2 and five.Shape == 2 and six.Shape == 2:
-                WinY = True
-            if seven.Shape == 2 and eight.Shape == 2 and nine.Shape == 2:
-                WinY = True
-            if one.Shape == 2 and four.Shape == 2 and seven.Shape == 2:
-                WinY = True
-            if two.Shape == 2 and five.Shape == 2 and eight.Shape == 2:
-                WinY = True
-            if three.Shape == 2 and six.Shape == 2 and nine.Shape == 2:
-                WinY = True
-            if one.Shape == 2 and five.Shape == 2 and nine.Shape == 2:
-                WinY = True
-            if three.Shape == 2 and five.Shape == 2 and seven.Shape == 2:
-                WinY = True
+        def CheckForWin2():<br>
+            global WinX<br>
+            global WinY<br>
+            if one.Shape == 1 and two.Shape == 1 and three.Shape == 1:<br>
+                WinX = True<br>
+            if one.Shape == -1 and two.Shape == -1 and three.Shape == -1:<br>
+                WinY = True<br>
+            if four.Shape == 1 and five.Shape == 1 and six.Shape == 1:<br>
+                WinX = True<br>
+            if four.Shape == -1 and five.Shape == -1 and six.Shape == -1:<br>
+                WinY = True<br>
+            if seven.Shape == 1 and eight.Shape == 1 and nine.Shape == 1:<br>
+                WinX = True<br>
+            if seven.Shape == -1 and eight.Shape == -1 and nine.Shape == -1:<br>
+                WinY = True<br>
+            if one.Shape == 1 and four.Shape == 1 and seven.Shape == 1:<br>
+                WinX = True<br>
+            if one.Shape == -1 and four.Shape == -1 and seven.Shape == -1:<br>
+                WinY = True<br>
+            if two.Shape == 1 and five.Shape == 1 and eight.Shape == 1:<br>
+                WinX = True<br>
+            if two.Shape == -1 and five.Shape == -1 and eight.Shape == -1:<br>
+                WinY = True<br>
+            if three.Shape == 1 and six.Shape == 1 and nine.Shape == 1:<br>
+                WinX = True<br>
+            if three.Shape == -1 and six.Shape == -1 and nine.Shape == -1:<br>
+                WinY = True<br>
+            if one.Shape == 1 and five.Shape == 1 and nine.Shape == 1:<br>
+                WinX = True<br>
+            if one.Shape == -1 and five.Shape == -1 and nine.Shape == -1:<br>
+                WinY = True<br>
+            if three.Shape == 1 and five.Shape == 1 and seven.Shape == 1:<br>
+                WinX = True<br>
+            if three.Shape == -1 and five.Shape == -1 and seven.Shape == -1:<br>
+                WinY = True<br>
 
 
-        def PrintBoardTesting():
-            print(PrintBoard1() + '|' + PrintBoard1() + '|' + PrintBoard1())
-            print('-+-+-')
-            print(PrintBoard1() + '|' + PrintBoard1() + '|' + PrintBoard1())
-            print('-+-+-')
-            print(PrintBoard1() + '|' + PrintBoard1() + '|' + PrintBoard1())
-            Reset()
+        def CheckForWinAI():<br>
+            global WinX<br>
+            global WinY<br>
+            if one.Shape == 2 and two.Shape == 2 and three.Shape == 2:<br>
+                WinY = True<br>
+            if four.Shape == 2 and five.Shape == 2 and six.Shape == 2:<br>
+                WinY = True<br>
+            if seven.Shape == 2 and eight.Shape == 2 and nine.Shape == 2:<br>
+                WinY = True<br>
+            if one.Shape == 2 and four.Shape == 2 and seven.Shape == 2:<br>
+                WinY = True<br>
+            if two.Shape == 2 and five.Shape == 2 and eight.Shape == 2:<br>
+                WinY = True<br>
+            if three.Shape == 2 and six.Shape == 2 and nine.Shape == 2:<br>
+                WinY = True<br>
+            if one.Shape == 2 and five.Shape == 2 and nine.Shape == 2:<br>
+                WinY = True<br>
+            if three.Shape == 2 and five.Shape == 2 and seven.Shape == 2:<br>
+                WinY = True<br>
 
 
-        def PrintBoard():
-            SwitchTurn()
-            Designate()
-            if turn == -1 or Tie == 8:
-                print(PrintBoard1() + '|' + PrintBoard1() + '|' + PrintBoard1())
-                print('-+-+-')
-                print(PrintBoard1() + '|' + PrintBoard1() + '|' + PrintBoard1())
-                print('-+-+-')
-                print(PrintBoard1() + '|' + PrintBoard1() + '|' + PrintBoard1())
-            Reset()
+        def PrintBoardTesting():<br>
+            print(PrintBoard1() + '|' + PrintBoard1() + '|' + PrintBoard1())<br>
+            print('-+-+-')<br>
+            print(PrintBoard1() + '|' + PrintBoard1() + '|' + PrintBoard1())<br>
+            print('-+-+-')<br>
+            print(PrintBoard1() + '|' + PrintBoard1() + '|' + PrintBoard1())<br>
+            Reset()<br>
 
 
-        Tie = 0
+        def PrintBoard():<br>
+            SwitchTurn()<br>
+            Designate()<br>
+            if turn == -1 or Tie == 8:<br>
+                print(PrintBoard1() + '|' + PrintBoard1() + '|' + PrintBoard1())<br>
+                print('-+-+-')<br>
+                print(PrintBoard1() + '|' + PrintBoard1() + '|' + PrintBoard1())<br>
+                print('-+-+-')<br>
+                print(PrintBoard1() + '|' + PrintBoard1() + '|' + PrintBoard1())<br>
+            Reset()<br>
 
 
-        def Turn():
-            global Tie
-            while True:
-                CheckForWin2()
-                if WinX:
-                    print('You win')
-                    break
-                elif WinY:
-                    print('AI wins')
-                    break
-                elif Tie == 9:
-                    print('You tied')
-                    break
-                else:
-                    PrintBoard()
-                    Tie = Tie + 1
-                    continue
+        Tie = 0<br>
 
 
-        def run():
-            print('Instructions:')
-            print('Each spot is assigned to a number see below')
-            print('1|2|3')
-            print('4|5|6')
-            print('7|8|9')
-            Turn()
+        def Turn():<br>
+            global Tie<br>
+            while True:<br>
+                CheckForWin2()<br>
+                if WinX:<br>
+                    print('You win')<br>
+                    break<br>
+                elif WinY:<br>
+                    print('AI wins')<br>
+                    break<br>
+                elif Tie == 9:<br>
+                    print('You tied')<br>
+                    break<br>
+                else:<br>
+                    PrintBoard()<br>
+                    Tie = Tie + 1<br>
+                    continue<br>
 
 
-        while True:
-            run()
-            I = input()
-            if I == "Go Again":
-                continue
-            else:
-                break
-  </h2>
-  <h3>Note:code is highly unoptimized</h3>
+        def run():<br>
+            print('Instructions:')<br>
+            print('Each spot is assigned to a number see below')<br>
+            print('1|2|3')<br>
+            print('4|5|6')<br>
+            print('7|8|9')<br>
+            Turn()<br>
+
+
+        while True:<br>
+            run()<br>
+            I = input()<br>
+            if I == "Go Again":<br>
+                continue<br>
+            else:<br>
+                break<br>
+  </p>
+  <h3>this code could be higly optimized</h3>
 </body>
